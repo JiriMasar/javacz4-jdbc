@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 
 @Data
 @Entity
+
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // autoincrement
