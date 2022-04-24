@@ -13,7 +13,7 @@ public class HibernateMain {
                 .configure("hibernate.cfg.xml")
                 .buildSessionFactory();
 
-        EntityManager entityManager = sessionFactory.createEntityManager();
+        EntityManager entityManager = (EntityManager) sessionFactory.createEntityManager();
 
         EntityTransaction transaction = entityManager.getTransaction();
 
