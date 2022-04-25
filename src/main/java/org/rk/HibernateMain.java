@@ -10,7 +10,6 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.service.ServiceRegistry;
 import org.rk.entity.*;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
@@ -93,9 +92,8 @@ public class HibernateMain {
 
     private static <T> T saveObject(T object) {
 
-        var id = (Serializable) entityManager.save(object);
-        var savedObject = (T) entityManager.get(object.getClass(), id);
-        return savedObject;
+        entityManager.persist(object);
+        return object;
 
     }
 }
