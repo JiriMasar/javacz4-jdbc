@@ -1,0 +1,29 @@
+<Configuration status="info">
+    <Appenders>
+        <!-- Console appender configuration -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <!-- Root logger referring to console appender -->
+        <Root level="error" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Root>
+        <!-- Log everything in hibernate -->
+        <Logger name="org.hibernate" level="error" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- Log SQL statements -->
+        <Logger name="org.hibernate.SQL" level="error" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- Log JDBC bind parameters -->
+        <Logger name="org.hibernate.type.descriptor.sql" level="error" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+    </Loggers>
+</Configuration>

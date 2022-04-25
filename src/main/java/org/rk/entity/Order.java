@@ -1,23 +1,32 @@
 package org.rk.entity;
 
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
 
-import javax.persistence.*;
-import java.util.List;
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Set;
 
-@Data
+@ToString
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-public class Order {
+@Table(name = "_order")
+public class Order implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // autoincrement
-    @Column(name = "id") // jmeno sloupce
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name="id", nullable=true) // true je implicitní, proto šedé // negeneruje se sloupec pouze vazba
-    private Customer customer; // n : 1
+    private LocalDate orderDate;
 
-    @OneToMany(mappedBy = "order")
-    private List<Item> itemList; // 1 : n
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private Set<OrderItem> itemList = new java.util.LinkedHashSet<>(); // 1 : n
+
 
 }

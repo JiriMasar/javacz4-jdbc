@@ -1,22 +1,32 @@
 package org.rk.entity;
 
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
 
-import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Set;
 
-@Data
+@ToString
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name = "Customer")
-public class Customer {
+public class Customer implements Serializable {
+    @ToString.Include
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) // autoincrement
-    @Column(name = "id") // jmeno sloupce
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false) // autoincrement
     private int id;
-    @Column
+
+    @ToString.Include
     private String name;
-    @Column
+
+    @ToString.Include
     private LocalDate birthDate;
 
-
+    @ToString.Exclude
+    @OneToMany(mappedBy = "customer")
+    private Set<Order> orders; // 1 : n
 }

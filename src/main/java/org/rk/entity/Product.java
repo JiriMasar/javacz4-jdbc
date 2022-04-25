@@ -1,17 +1,20 @@
 package org.rk.entity;
 
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
 
-import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-@Data
+@ToString
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-
-public class Item {
+public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // autoincrement
-    @Column(name = "id") // jmeno sloupce
     private int id;
 
     @Column
@@ -23,7 +26,5 @@ public class Item {
     @Column
     private CategoryEnum category;
 
-    @ManyToOne
-    @JoinColumn(name="id", nullable=true)
-    private Order order;
+
 }
