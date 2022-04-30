@@ -8,6 +8,7 @@ import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 import org.rk.entity.*;
 
@@ -44,7 +45,7 @@ public class HibernateMain {
                 List<Product> allObjects = getAllObjects(Product.class);
 
                 log.info("Customer " + customerWithId1);
-
+                log.info("Return to list" + allObjects);
             }
         }
     }
@@ -113,6 +114,7 @@ public class HibernateMain {
     }
 
     private static <T> List<T> getAllObjects(Class<T> clazz) {
-        return null;
+        Query query = entityManager.createQuery("FROM " + clazz.getName());
+        return query.getResultList();
     }
 }
