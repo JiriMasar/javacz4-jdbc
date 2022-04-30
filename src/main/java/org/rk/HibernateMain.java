@@ -42,7 +42,7 @@ public class HibernateMain {
                 System.out.println(order);
 
                 Customer customerWithId1 = getObject(Customer.class, 1);
-                List<Product> allObjects = getAllObjects(Product.class);
+                List<BaseEntity> allObjects = getAllObjects(BaseEntity.class);
 
                 log.info("Customer " + customerWithId1);
                 log.info("Return to list" + allObjects);
@@ -116,5 +116,9 @@ public class HibernateMain {
     private static <T> List<T> getAllObjects(Class<T> clazz) {
         Query query = entityManager.createQuery("FROM " + clazz.getName());
         return query.getResultList();
+    }
+
+    private void delete(int id) {
+
     }
 }
