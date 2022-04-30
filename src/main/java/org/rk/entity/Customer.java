@@ -1,9 +1,9 @@
 package org.rk.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -13,12 +13,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Customer implements Serializable {
-    @ToString.Include
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false) // autoincrement
-    private int id;
+public class Customer extends BaseEntity {
 
     @ToString.Include
     private String name;

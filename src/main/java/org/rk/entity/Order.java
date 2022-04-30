@@ -3,7 +3,6 @@ package org.rk.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -14,10 +13,8 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "_order")
-public class Order implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) // autoincrement
-    private int id;
+public class Order extends BaseEntity {
+
 
     private LocalDate orderDate;
 

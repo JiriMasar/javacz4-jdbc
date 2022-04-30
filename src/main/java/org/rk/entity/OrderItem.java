@@ -1,9 +1,9 @@
 package org.rk.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
-
-import java.io.Serializable;
 
 @ToString
 @Getter
@@ -11,10 +11,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class OrderItem implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) // autoincrement
-    private int id;
+public class OrderItem extends BaseEntity {
+
 
     @ManyToOne()
     @JoinColumn(name = "product_id")
