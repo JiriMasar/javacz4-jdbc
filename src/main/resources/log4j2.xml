@@ -11,6 +11,9 @@
         <Root level="error" additivity="false">
             <AppenderRef ref="Console"/>
         </Root>
+        <Logger name="org.rk" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
         <!-- Log everything in hibernate -->
         <Logger name="org.hibernate" level="error" additivity="false">
             <AppenderRef ref="Console"/>

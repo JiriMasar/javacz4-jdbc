@@ -1,5 +1,6 @@
 package org.rk;
 
+import lombok.extern.log4j.Log4j2;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -12,11 +13,14 @@ import org.rk.entity.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Log4j2
 public class HibernateMain {
+
 
     private static Session entityManager;
 
@@ -35,6 +39,12 @@ public class HibernateMain {
                 System.out.println(customer);
                 System.out.println(item);
                 System.out.println(order);
+
+                Customer customerWithId1 = getObject(Customer.class, 1);
+                List<Product> allObjects = getAllObjects(Product.class);
+
+                log.info("Customer " + customerWithId1);
+
             }
         }
     }
@@ -95,5 +105,13 @@ public class HibernateMain {
         entityManager.persist(object);
         return object;
 
+    }
+
+    private static <T> T getObject(Class<T> clazz, int id) {
+        return null;
+    }
+
+    private static <T> List<T> getAllObjects(Class<T> clazz) {
+        return null;
     }
 }

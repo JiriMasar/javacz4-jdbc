@@ -20,7 +20,7 @@ public class Product implements Serializable {
     @Column
     private String name;
 
-    @Column
+    @Column()
     private BigDecimal price;
 
     @Column
