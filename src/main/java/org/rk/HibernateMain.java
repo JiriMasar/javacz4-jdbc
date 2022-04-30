@@ -108,7 +108,8 @@ public class HibernateMain {
     }
 
     private static <T> T getObject(Class<T> clazz, int id) {
-        return null;
+        T t = entityManager.find(clazz, id);
+        return t;
     }
 
     private static <T> List<T> getAllObjects(Class<T> clazz) {
