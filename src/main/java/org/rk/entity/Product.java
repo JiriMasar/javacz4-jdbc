@@ -3,7 +3,6 @@ package org.rk.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 @ToString
@@ -12,7 +11,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Product implements Serializable {
+public class Product extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // autoincrement
     private int id;

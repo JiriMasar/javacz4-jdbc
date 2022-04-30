@@ -46,6 +46,11 @@ public class HibernateMain {
 
                 log.info("Customer " + customerWithId1);
                 log.info("Return to list" + allObjects);
+
+                delete(Product.class,1);
+                allObjects = getAllObjects(BaseEntity.class);
+                log.info("Return to list" + allObjects);
+
             }
         }
     }
@@ -118,7 +123,11 @@ public class HibernateMain {
         return query.getResultList();
     }
 
-    private void delete(int id) {
-
+    private static void delete(Class clazz, int id) {
+        Transaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        entityManager.remove(getObject(clazz,id));
+        transaction.commit();
     }
+
 }

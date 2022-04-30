@@ -10,5 +10,4 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false) // autoincrement
     private int id;
-
 }
