@@ -9,11 +9,11 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate?createDatabaseIfNotExist=true
         </property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">Bea007Bea007
+        <property name="hibernate.connection.password">
         </property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <!--        <property name="hibernate.current_session_context_class">thread</property>-->
-        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.show_sql">true</property>
         <property name="hbm2ddl.auto">create-drop</property>
 
 

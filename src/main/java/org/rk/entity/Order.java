@@ -22,7 +22,7 @@ public class Order extends BaseEntity {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST)
     private Set<OrderItem> itemList = new java.util.LinkedHashSet<>(); // 1 : n
 
 
